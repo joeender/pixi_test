@@ -5,7 +5,8 @@ declare var PIXI: any;
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+
+export class AppComponent implements OnInit {
   public app: any;
 
   constructor() {
