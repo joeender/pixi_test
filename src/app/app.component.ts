@@ -14,8 +14,8 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.app = new PIXI.Application(window.innerWidth / 2, window.innerHeight, { backgroundColor: 0xFFFFFF });
-    let leftPanel = document.getElementById('pixi-window').appendChild(this.app.view);
-    let basicText = new PIXI.Text('Basic text in pixi');
+    const pixiWindow = document.getElementById('pixi-window').appendChild(this.app.view);
+    const basicText = new PIXI.Text('Basic text in pixi');
     basicText.x = 30;
     basicText.y = 90;
 
