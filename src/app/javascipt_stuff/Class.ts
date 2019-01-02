@@ -12,7 +12,7 @@ export namespace MyClass {
             this.width = width;
         }
           // Getter
-        area() {
+        get area(): number {
             return this.calcArea();
         }
           // Method
@@ -21,7 +21,7 @@ export namespace MyClass {
         }
 
         print() {
-            alert(this.area());
+            alert(this.area);
         }
     }
 }
