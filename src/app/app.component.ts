@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 // import myFunction from 'src/app/javascipt_stuff/myClass.js'; // Importing
-import { MyClass } from 'src/app/javascipt_stuff/Class.js'; // Importing
+import { EventManager } from 'src/app/boardgame/EventManager.js'; // Importing
 
 declare var PIXI: any;
 
@@ -19,14 +19,8 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.app = new PIXI.Application(window.innerWidth / 2, window.innerHeight, { backgroundColor: 0xFFFFFF });
     const pixiWindow = document.getElementById('pixi-window').appendChild(this.app.view);
-    const basicText = new PIXI.Text('Basic text in pixi');
-    // console.log(myFunction(1, 2));
-
-    const test_class = new MyClass.Rec(3, 3);
-    test_class.print();
-    basicText.x = 30;
-    basicText.y = 90;
-
-    this.app.stage.addChild(basicText);
+    const test_class = new EventManager.EventDisplayText(this.app, 'hello');
+    test_class.set_position(190, 90);
+    test_class.display_text();
   }
 }
