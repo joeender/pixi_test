@@ -1,7 +1,3 @@
-// export default function myFunction(p1, p2) {
-//     return p1 * p2; // The function returns the product of p1 and p2
-// }
-// import * as PIXI from 'pixi.js';
 declare var PIXI: any;
 
 export namespace EventManager {
@@ -21,7 +17,6 @@ export namespace EventManager {
         }
 
         display_text() {
-            alert(this.text_string.text);
             this.pixi_app.stage.addChild(this.text_string);
         }
     }
