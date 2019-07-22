@@ -14,6 +14,11 @@ export namespace Piece {
             this.sprite = sprite;
         }
 
+        set_position(x, y) {
+            this.sprite.position.x = x;
+            this.sprite.position.y = y;
+        }
+
         render() {
             this.pixi_app.stage.addChild(this.sprite);
         }
