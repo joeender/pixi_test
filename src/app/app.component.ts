@@ -23,20 +23,29 @@ export class AppComponent implements OnInit {
     const test_class = new EventManager.EventDisplayText(this.app, 'hello');
     const CARD_WIDTH = 81;
     const CARD_HEIGHT = 117;
+    const DECK_SIZE = 52;
     const deck = [];
-    for (let row = 0; row < 2; row++) {
-      for (let col = 0; col < 2; col++) {
-        const test_piece = new Piece.AbstractPiece(this.app);
+
+    for (let row = 0; row < 13; row++) {
+      for (let col = 0; col < 5; col++) {
+        const card = new Piece.AbstractPiece(this.app);
         const texture = new PIXI.Texture(PIXI.Texture.fromImage('assets/sprites/cards_sprite.gif'),
-          new PIXI.Rectangle(0, 0, row * CARD_WIDTH, col * CARD_HEIGHT));
+          new PIXI.Rectangle(row * CARD_WIDTH, col * CARD_HEIGHT, CARD_WIDTH, CARD_HEIGHT));
         const sprite = new PIXI.Sprite(texture);
-        test_piece.set_sprite(sprite);
-        test_piece.set_position(row * CARD_WIDTH, col * CARD_HEIGHT);
-        test_piece.render();
-        deck.push(sprite);
+        card.set_sprite(sprite);
+        deck.push(card);
       }
     }
-
+    let display_height = CARD_HEIGHT;
+    let display_width = CARD_WIDTH;
+    for (let i = 0; i < deck.length; i++) {
+      if (i === 6) {
+        display_height += CARD_HEIGHT;
+        display_width = 0;
+      }
+      deck[i].set_position(i * (display_width + 2), display_height);
+      deck[i].render();
+    }
 
     test_class.set_position(190, 90);
     test_class.display_text();
