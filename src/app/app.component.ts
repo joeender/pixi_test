@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 // import myFunction from 'src/app/javascipt_stuff/myClass.js'; // Importing
 import { EventManager } from 'src/app/boardgame/EventManager.js'; // Importing
-import { Piece } from 'src/app/boardgame/Piece.js'; // Importing
+import { Card } from 'src/app/boardgame/Card.js'; // Importing
 
 declare var PIXI: any;
 const renderer = PIXI.autoDetectRenderer(800, 600);
@@ -31,13 +31,11 @@ export class AppComponent implements OnInit {
 
     for (let row = 0; row < 13; row++) {
       for (let col = 0; col < 5; col++) {
-        const card = new Piece.AbstractPiece(this.app);
+        const card = new Card(this.app);
         const texture = new PIXI.Texture(PIXI.Texture.fromImage('assets/sprites/cards_sprite.gif'),
           new PIXI.Rectangle(row * CARD_WIDTH, col * CARD_HEIGHT, CARD_WIDTH, CARD_HEIGHT));
         const sprite = new PIXI.Sprite(texture);
-
         sprite.interactive = true;
-
         // this button mode will mean the hand cursor appears when you roll over the bunny with your mouse
         sprite.buttonMode = true;
         // center the bunny's anchor point

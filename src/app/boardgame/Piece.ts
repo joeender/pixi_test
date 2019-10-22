@@ -5,7 +5,9 @@ export namespace Piece {
     export class AbstractPiece {
         pixi_app;
         sprite;
-
+        name: string;
+        num_value: number;
+        details: {};
         constructor(app) {
             this.pixi_app = app;
         }
