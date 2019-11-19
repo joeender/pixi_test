@@ -29,11 +29,12 @@ export class AppComponent implements OnInit {
     const DECK_SIZE = 52;
     const deck = [];
 
-    for (let row = 0; row < 13; row++) {
-      for (let col = 0; col < 5; col++) {
+    let card_count = 0;
+    for (let row = 0; row < 5; row++) {
+      for (let col = 0; col < 13; col++) {
         const card = new Card(this.app);
         const texture = new PIXI.Texture(PIXI.Texture.fromImage('assets/sprites/cards_sprite.gif'),
-          new PIXI.Rectangle(row * CARD_WIDTH, col * CARD_HEIGHT, CARD_WIDTH, CARD_HEIGHT));
+          new PIXI.Rectangle(col * CARD_WIDTH, row * CARD_HEIGHT, CARD_WIDTH, CARD_HEIGHT));
         const sprite = new PIXI.Sprite(texture);
         sprite.interactive = true;
         // this button mode will mean the hand cursor appears when you roll over the bunny with your mouse
@@ -56,6 +57,13 @@ export class AppComponent implements OnInit {
 
         card.set_sprite(sprite);
         deck.push(card);
+        card_count += 1;
+        if (card_count >= DECK_SIZE) {
+          break;
+        }
+      }
+      if (card_count >= DECK_SIZE) {
+        break;
       }
     }
     let display_height = CARD_HEIGHT;
