@@ -1,5 +1,5 @@
 import { Piece } from './Piece.js'; // Importing
-import { interaction } from 'pixi.js';
+// import { interaction } from 'pixi.js';
 
 export class Card extends Piece.AbstractPiece {
     is_front: Boolean;
